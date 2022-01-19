@@ -51,7 +51,6 @@ public class SeparateChaining {
 
             totalProbe++;
             headNode = headNode.getNextNode();
-
         }
 
         return null;

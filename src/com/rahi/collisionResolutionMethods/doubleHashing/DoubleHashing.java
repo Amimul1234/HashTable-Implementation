@@ -3,7 +3,7 @@ package com.rahi.collisionResolutionMethods.doubleHashing;
 import com.rahi.hashFunctions.AuxHash;
 import com.rahi.hashFunctions.HashFunction;
 
-class DoubleHashing {
+public class DoubleHashing {
 
     private final int HASH_TABLE_SIZE;
     private int currentSize;
