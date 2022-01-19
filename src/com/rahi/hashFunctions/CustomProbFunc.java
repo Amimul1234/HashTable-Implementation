@@ -1,6 +1,6 @@
 package com.rahi.hashFunctions;
 
-public class CustomProb {
+public class CustomProbFunc {
     public static int customHash( HashFunction hashFunction, String key, int i, int N ) {
         int C1 = 23;
         int C2 = 31;
