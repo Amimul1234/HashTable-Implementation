@@ -43,5 +43,7 @@ public class SeparateChainingMethodTester {
             int random = (int) (Math.random() * (9999 + 1));
             separateChaining.search(keys[random]);
         }
+
+        System.out.println("Average probe is: " + separateChaining.getTotalProbe() / 1000.0);
     }
 }

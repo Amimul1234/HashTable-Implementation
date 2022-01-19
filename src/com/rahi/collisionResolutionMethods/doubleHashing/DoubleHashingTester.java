@@ -43,5 +43,7 @@ public class DoubleHashingTester {
             int random = (int) (Math.random() * (9999 + 1));
             doubleHashing.search(keys[random]);
         }
+
+        System.out.println("Average probes : " + doubleHashing.getProbing() / 1000.0);
     }
 }

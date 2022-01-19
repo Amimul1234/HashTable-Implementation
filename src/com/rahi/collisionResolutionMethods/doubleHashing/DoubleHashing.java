@@ -8,6 +8,7 @@ class DoubleHashing {
     private final int HASH_TABLE_SIZE;
     private int currentSize;
     private int collisionNumber;
+    private int probing;
     private final HashNode[] table;
     private final HashFunction hashFunction;
 
@@ -34,6 +35,7 @@ class DoubleHashing {
         int stepSize = AuxHash.auxHashGenerator(key, HASH_TABLE_SIZE);
 
         while (table[firstHashValue] != null && !table[firstHashValue].getKey().equals(key)) {
+            probing++;
             firstHashValue += stepSize;
             firstHashValue %= HASH_TABLE_SIZE;
         }
@@ -60,7 +62,6 @@ class DoubleHashing {
         table[hashValue1] = new HashNode(key, value);
     }
 
-
     public void remove( String key ) {
 
         int hashValue1 = hashFunction.hashValue(key, HASH_TABLE_SIZE);
@@ -80,4 +81,7 @@ class DoubleHashing {
         return collisionNumber;
     }
 
+    public int getProbing() {
+        return probing;
+    }
 }

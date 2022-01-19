@@ -8,6 +8,7 @@ public class SeparateChaining {
 
     private final int numberOfNodes;
     private int currentSize;
+    private int totalProbe = 0;
     private final HashFunction hashFunction;
     private final ArrayList<HashNode> hashNodes;
 
@@ -22,6 +23,7 @@ public class SeparateChaining {
 
         for (int i = 0; i < numberOfNodes; i++)
             hashNodes.add(null);
+
     }
 
 
@@ -43,10 +45,13 @@ public class SeparateChaining {
         HashNode headNode = hashNodes.get(index);
 
         while (headNode != null) {
+
             if (headNode.getKey().equals(key) && headNode.getHashValue() == index)
                 return headNode.getValue();
 
+            totalProbe++;
             headNode = headNode.getNextNode();
+
         }
 
         return null;
@@ -96,5 +101,9 @@ public class SeparateChaining {
         }
 
         return currentSize - numberOfOccupiedBucket;
+    }
+
+    public int getTotalProbe() {
+        return totalProbe;
     }
 }
