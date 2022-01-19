@@ -1,6 +1,5 @@
 package com.rahi.collisionResolutionMethods.doubleHashing;
 
-import com.rahi.hashFunctions.AuxHash;
 import com.rahi.hashFunctions.DoubleHash;
 import com.rahi.hashFunctions.HashFunction;
 
@@ -67,16 +66,14 @@ public class DoubleHashing {
 
     public void remove( String key ) {
 
-        int hashValue1 = hashFunction.hashValue(key, HASH_TABLE_SIZE);
-        int stepSize = AuxHash.auxHashGenerator(key, HASH_TABLE_SIZE);
+        int numberOfCollision = 0;
+        int hashValue1 = DoubleHash.doubleHashGenerator(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
 
         while (table[hashValue1] != null && !table[hashValue1].getKey().equals(key)) {
-            hashValue1 += stepSize;
-            hashValue1 %= HASH_TABLE_SIZE;
+            hashValue1 = DoubleHash.doubleHashGenerator(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
         }
 
         table[hashValue1] = null;
-
         currentSize--;
     }
 
