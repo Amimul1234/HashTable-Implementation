@@ -56,16 +56,12 @@ public class DoubleHashing {
         int hashValue1 = DoubleHash.doubleHashGenerator(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
 
         while (table[hashValue1] != null) {
-
             numberOfCollision++;
-
             hashValue1 = DoubleHash.doubleHashGenerator(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
-
-            totalCollisionNumber += numberOfCollision;
         }
 
         currentSize++;
-
+        totalCollisionNumber += numberOfCollision;
         table[hashValue1] = new HashNode(key, value);
     }
 

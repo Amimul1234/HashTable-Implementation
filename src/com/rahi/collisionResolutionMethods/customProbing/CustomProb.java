@@ -55,16 +55,12 @@ public class CustomProb {
         int hashValue1 = CustomProbFunc.customHash(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
 
         while (table[hashValue1] != null) {
-
             numberOfCollision++;
-
             hashValue1 = CustomProbFunc.customHash(hashFunction, key, numberOfCollision, HASH_TABLE_SIZE);
-
-            totalCollisionNumber += numberOfCollision;
         }
 
         currentSize++;
-
+        totalCollisionNumber += numberOfCollision;
         table[hashValue1] = new HashNode(key, value);
     }
 
