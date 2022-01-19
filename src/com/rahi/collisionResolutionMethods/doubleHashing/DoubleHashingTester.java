@@ -35,7 +35,7 @@ public class DoubleHashingTester {
         assert stringIntegerHashMap != null;
         stringIntegerHashMap.forEach(doubleHashing::insert);
 
-        System.out.println("Number of collision is:" + doubleHashing.getCollisionNumber());
+        System.out.println("Number of collision is:" + doubleHashing.getTotalCollisionNumber());
 
         String[] keys = stringIntegerHashMap.keySet().toArray(new String[0]);
 
